@@ -1,0 +1,8 @@
+path_full_info:
+  './data/raw/Post metadata_(JSON_files)/info/'
+path_full_image:
+  './data/raw/Post_images_(JPG_files)/posts_image/image/'
+path_1per_info:
+  './data/raw_1percent/Post_metadata_(JSON_files)/info'
+path_1per_image:
+  './data/raw_1percent/Post_images_(JPG_files)/posts_image/image'

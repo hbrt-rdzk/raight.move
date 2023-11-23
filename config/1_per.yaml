@@ -1,0 +1,26 @@
+path_data:
+  './data/raw_1percent'
+
+path_influencers:
+  './data/raw_1percent/influencers.txt'
+
+path_post:
+  './data/raw_1percent/Post_metadata_(JSON files)/info'
+
+path_mapping:
+  './data/raw_1percent/JSON-Image_files_mapping.txt'
+
+path_image:
+  './data/raw_1percent/Post_images_(JPG_files)/posts_image/image'
+
+categories:
+  ['fashion', 'other', 'pet', 'family', 'beauty', 'interior', 'fitness', 'travel', 'food']
+
+model_detection:
+  './models/detection/yolov8n.pt'
+
+threshold_detection:
+  - 0.5
+
+
+
