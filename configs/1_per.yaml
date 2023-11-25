@@ -1,0 +1,41 @@
+path_1per_data:
+  './data/raw_1percent'
+path_1per_influencers:
+  './data/raw_1percent/influencers.txt'
+path_1per_mapping:
+  './data/raw_1percent/JSON-Image_files_mapping.txt'
+path_1per_metadata:
+  './data/raw_1percent/Post_metadata_(JSON files)/info'
+path_1per_image:
+  './data/raw_1percent/Post_images_(JPG_files)/posts_image/image'
+
+path_full_data:
+  './data/raw'
+path_full_influencers:
+  './data/raw/influencers.txt'
+path_full_mapping:
+  './data/raw/JSON-Image_files_mapping.txt'
+path_full_metadata:
+  './data/raw/Post metadata_(JSON_files)/info/'
+path_full_image:
+  './data/raw/Post_images_(JPG_files)/posts_image/image/'
+
+path_data:
+  './data/raw_1percent'
+path_influencers:
+  './data/raw_1percent/influencers.txt'
+path_mapping:
+  './data/raw_1percent/JSON-Image_files_mapping.txt'
+path_metadata:
+  './data/raw_1percent/Post_metadata_(JSON files)/info'
+path_image:
+  './data/raw_1percent/Post_images_(JPG_files)/posts_image/image'
+
+image_categories:
+  ['fashion', 'other', 'pet', 'family', 'beauty', 'interior', 'fitness', 'travel', 'food']
+
+model_detection:
+  './models/detection/yolov8n.pt'
+threshold_detection:
+  - 0.5
+
