@@ -1,5 +1,6 @@
-/data/raw/*
-/data/raw_1percent/*
+/data/raw
+/data/raw_1percent
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
