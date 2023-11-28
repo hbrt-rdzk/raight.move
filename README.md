@@ -1,27 +1,24 @@
 # AI Pose Correction for Influencers
 
+
+
 ## Overview
 Welcome to the AI Pose Correction for Influencers repository! This project is dedicated to developing advanced machine learning models aimed at analyzing the postures of influencers in images to ensure they are ergonomically correct and visually appealing. Our goal is to create an AI tool that assists influencers in maintaining a proper posture, thereby enhancing their presence and engagement on social media platforms.
 
-## Features
-- **Posture Analysis:** Utilize AI to detect postures and suggest improvements.
-- **Model Training:** Frameworks for training custom models on posture data.
-- **Image Processing:** Automated pipelines to preprocess and filter images for analysis.
-- **Visualization:** Tools for visualizing posture analytics and corrections.
-- **User Interface:** A simple UI for influencers to upload images and receive feedback.
+**For up-to-date results, check out the poster.png**
 
-## Project Structure
-- `/src`: Contains all the source code for the project including AI models and utilities.
-- `/data`: Placeholder directory for storing datasets used in model training (actual data not included due to privacy).
-- `/notebooks`: Jupyter notebooks with exploratory data analysis, model prototyping, and testing.
-- `/docs`: Documentation on the methodology, usage, and setup instructions.
-- `/tests`: Unit and integration tests ensuring code reliability and stability.
+## Features
+- **Posture Analysis:** Utilize AI to detect postures and suggest improvements. **WIP**
+- **Model Training:** Frameworks for training custom models on posture data. **WIP**
+- **Image Processing:** Automated pipelines to preprocess and filter images for analysis. **WIP**
+- **Visualization:** Tools for visualizing posture analytics and corrections. **WIP**
+- **User Interface:** A simple UI for influencers to upload images and receive feedback. **WIP**
 
 ## Technologies
 - **AI & Machine Learning:** TensorFlow, PyTorch, OpenCV
 - **Data Science:** Pandas, NumPy, Matplotlib
-- **Web Framework:** Streamlit/Flask/Django (for UI)
-- **DevOps:** Docker, GitHub Actions (for CI/CD pipelines)
+- **Web Framework:** Streamlit/Flask/Django (for UI) **WIP**
+- **DevOps:** Docker, GitHub Actions (for CI/CD pipelines) **WIP**
 
 ## Getting Started
 To get started with this project, please follow the setup instructions provided in the `/docs` directory. It will guide you through the installation of dependencies, setting up the environment, and running the initial models.

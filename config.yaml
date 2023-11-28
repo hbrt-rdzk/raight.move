@@ -14,9 +14,63 @@ path_data:
 path_influencers:
 path_mapping:
 path_metadata:
+path_metadata_popular:
 path_image:
+path_keypoints_2d_1person:
+path_keypoints_3d_1person:
+path_people_mapping:
 
 image_categories:
+
+JointsCoCo2D:
+  NOSE: 
+  LEFT_EYE: 
+  RIGHT_EYE: 
+  LEFT_EAR: 
+  RIGHT_EAR: 
+  LEFT_SHOULDER: 
+  RIGHT_SHOULDER : 
+  LEFT_ELBOW: 
+  RIGHT_ELBOW: 
+  LEFT_HAND: 
+  RIGHT_HAND: 
+  LEFT_HIP: 
+  RIGHT_HIP: 
+  LEFT_KNEE: 
+  RIGHT_KNEE: 
+  LEFT_FOOT: 
+  RIGHT_FOOT: 
+coco_head_points:
+coco_connections:
+coco_angles:
+coco_base_connestion:
+
+JointsHuman3D:
+  LOWER_SPINE: 
+  RIGHT_HIP: 
+  RIGHT_KNEE: 
+  RIGHT_FOOT: 
+  LEFT_HIP: 
+  LEFT_KNEE: 
+  LEFT_FOOT:
+  UPPER_SPINE: 
+  THROAT: 
+  NOSE: 
+  FORHEAD: 
+  LEFT_SHOULDER: 
+  LEFT_ELBOW: 
+  LEFT_HAND: 
+  RIGHT_SHOULDER: 
+  RIGHT_ELBOW: 
+  RIGHT_HAND: 
+human36_head_points:
+human36_connections:
+human36_angles:
+human36_base_connestion:
+
+# should be removed and replaced n visualizer by coco_angles
+angles:
+base_connestion:
 
 model_detection:
 threshold_detection:
