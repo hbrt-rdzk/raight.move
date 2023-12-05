@@ -7,3 +7,4 @@ torch==2.1.1
 jupyter==1.0.0
 notebook==6.5.4
 ultralytics==8.0.218
+opencv-python==4.8.1.78

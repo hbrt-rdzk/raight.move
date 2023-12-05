@@ -30,9 +30,21 @@ path_metadata:
   './data/raw_1percent/Post_metadata_(JSON files)/info'
 path_image:
   './data/raw_1percent/Post_images_(JPG_files)/posts_image/image'
+path_keypoints_2d_1person:
+  './data/raw_1percent/Keypoints/pose_estimation_2d/1_person'
+path_keypoints_3d_1person:
+  './data/raw_1percent/Keypoints/pose_estimation_3d/1_person'
 
 image_categories:
   ['fashion', 'other', 'pet', 'family', 'beauty', 'interior', 'fitness', 'travel', 'food']
+coco_head_points:
+  [0, 1, 2, 3, 4]
+connections:
+  [[0, 1], [1, 3], [0, 2], [1, 2], [2, 4], [4, 6], [3, 5], [6, 5], [5, 11],[11, 12], [12, 6], [6, 8], [8, 10], [5, 7], [7, 9], [12, 14], [14, 16], [11, 13], [13, 15]]
+angles:
+  [[12,14,16], [11,13,15], [11,12,14], [12,11,13], [6,12,11], [5,11,12], [10,8,6], [9,7,5], [12,6,8], [11,5,7], [12,6,5] ,[11,5,6]]
+base_connestion:
+  [5,6]
 
 model_detection:
   './models/detection/yolov8n.pt'
