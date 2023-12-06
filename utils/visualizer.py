@@ -170,6 +170,7 @@ class Visualizer:
                 zaxis=dict(range=z_range),
             )
         )
+        fig.update_layout(showlegend=False)
         fig.show()
 
     def _create_joint_names(self, config_data: dict, key: str) -> list:
