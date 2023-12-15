@@ -27,7 +27,9 @@ path_influencers:
 path_mapping:
   './data/raw_1percent/JSON-Image_files_mapping.txt'
 path_metadata:
-  './data/raw_1percent/Post_metadata_(JSON files)/info'
+  './data/raw_1percent/Post_metadata_(JSON_files)/info'
+path_metadata_popular:
+  './data/raw_1percent/Post_metadata_(JSON_files)/popular'
 path_image:
   './data/raw_1percent/Post_images_(JPG_files)/posts_image/image'
 path_keypoints_2d_1person:

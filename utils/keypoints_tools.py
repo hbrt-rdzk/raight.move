@@ -68,14 +68,45 @@ def exclude_low_prob(df, column_name, column_prob, prob_drop_value):
     df[column_name + f'_{prob_drop_value}'] = df.apply(drop_low_prob, axis=1, args=(column_name, column_prob, prob_drop_value))
 
 def std_column(df, column_name, new_column_name, imput_method='mean'):
-# Standaryzacja dla wszystkich indeksów
-    lenghts_list_len = len(df[column_name][0])
+    # Standaryzacja dla wszystkich indeksów
     # Załóż, że wszystkie listy mają tę samą długość
+    lenghts_list_len = len(df[column_name][0])
+    
     df[new_column_name] = df[column_name].apply(copy.deepcopy)
 
     for i in range(lenghts_list_len):
         
         df[new_column_name] = std_index(df[new_column_name], i, imput_method)
+        
+def bin_index(kolumna, index, discretizer): 
+    elements = kolumna.apply(lambda x: x[index]).to_numpy().reshape(-1, 1)
+    
+    elements = discretizer.fit_transform(elements).reshape(-1)
+    elements = iter(elements)
+    return kolumna.apply(lambda x: change_value(x, index, next(elements)))
+       
+def bin_column(df, column_name, new_column_name, discretizerType, discretizer_args):
+    # Standaryzacja dla wszystkich indeksów
+    # Załóż, że wszystkie listy mają tę samą długość
+    lenghts_list_len = len(df[column_name][0])
+    
+    df[new_column_name] = df[column_name].apply(copy.deepcopy)
+    discretizer = discretizerType(**discretizer_args)
+    binarized_result = discretizer.fit_transform(np.array([np.array(row) for row in df[new_column_name]]))
+    df[new_column_name] = [list(row) for row in binarized_result]
+    
+        
+        
+"""def bin_column(df, column_name, new_column_name, discretizerType, discretizer_args):
+    # Standaryzacja dla wszystkich indeksów
+    # Załóż, że wszystkie listy mają tę samą długość
+    lenghts_list_len = len(df[column_name][0])
+    
+    df[new_column_name] = df[column_name].apply(copy.deepcopy)
+
+    for i in range(lenghts_list_len):
+        discretizer = discretizerType(**discretizer_args)
+        df[new_column_name] = bin_index(df[new_column_name], i, discretizer)"""
         
 def angle3pt_3d(a, b, c):
     # Oblicz różnice współrzędnych dla każdej osi
@@ -94,14 +125,18 @@ def angle3pt_3d(a, b, c):
 
     # Konwertuj kąt z radianów na stopnie
     ang = math.degrees(angle_rad)
-    return ang + 360 if ang < 0 else ang
+    angle = (angle + 360) if angle < 0 else angle
+    #angle = angle if angle <= 180 else abs(angle - 360)
+    return angle 
 
 def angle3pt_2d(a, b, c):
     """Counterclockwise angle in degrees by turning from a to c around b
         Returns a float between 0.0 and 360.0"""
-    ang = math.degrees(
+    angle = math.degrees(
         math.atan2(c[1]-b[1], c[0]-b[0]) - math.atan2(a[1]-b[1], a[0]-b[0]))
-    return ang + 360 if ang < 0 else ang
+    angle = (angle + 360) if angle < 0 else angle
+    #angle = angle if angle <= 180 else abs(angle - 360)
+    return angle
 
 def get_base_angle(mid_point, end_point, three_dim=False):
     base_end_point = [0.0, mid_point[1], mid_point[2]] if three_dim else [0.0, mid_point[1]]
@@ -119,7 +154,9 @@ def get_angle3(a, b, c, base_points=None, three_dim=False):
         angle = angle3pt_3d(a, b, c) - base_angle
     else:
         angle = angle3pt_2d(a, b, c) - base_angle
-    return angle + 360 if angle < 0 else angle
+    angle = (angle + 360) if angle < 0 else angle
+    #angle = angle if angle <= 180 else abs(angle - 360)
+    return angle
 
 def count_angles(keypoints, angles, base_points=None, three_dim=False):
     angles_size = [get_angle3(keypoints[point1], keypoints[point2], keypoints[point3], base_points, three_dim) for point1, point2, point3 in angles]
@@ -141,3 +178,5 @@ def count_variant_angle(keypoints, connections, three_dim=False):
 def add_variant_angle(df, connections, useless_points=[], three_dim=False):
     connections = [(x, y) for x, y in connections if x not in useless_points and y not in useless_points]
     df['variant_angles'] = df['keypoints'].apply(lambda x: count_variant_angle(x, connections, three_dim))
+    # should refactor name, it's just for 2 points, and count_angles_prob is for 3 points. here 2 points good
+    df['variant_angles_prob'] = df['keypoint_scores'].apply(lambda x: count_lenghts_prob(x, connections))
