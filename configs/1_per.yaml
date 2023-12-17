@@ -36,6 +36,8 @@ path_keypoints_2d_1person:
   './data/raw_1percent/Keypoints/pose_estimation_2d/1_person'
 path_keypoints_3d_1person:
   './data/raw_1percent/Keypoints/pose_estimation_3d/1_person'
+path_people_mapping:
+  './data/raw_1percent/photo_people_mappping_05.txt'
 
 image_categories:
   ['fashion', 'other', 'pet', 'family', 'beauty', 'interior', 'fitness', 'travel', 'food']

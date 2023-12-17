@@ -41,6 +41,14 @@ def std_index(kolumna, index, imput_method):
         # Uzupełnij brakujące dane średnią
         elements_mean = elements.mean()
         elements = elements.fillna(elements_mean)
+    if imput_method == 'median':
+        # Uzupełnij brakujące dane średnią
+        elements_median = elements.median()
+        elements = elements.fillna(elements_median)
+    if imput_method == 'mode':
+        # Uzupełnij brakujące dane średnią
+        elements_median = elements.mode().iloc[0]
+        elements = elements.fillna(elements_median)
     elif imput_method == 'most':
         # imput beetwen Q1 and Q3
         mean = elements.mean()
