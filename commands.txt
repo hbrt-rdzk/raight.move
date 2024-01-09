@@ -1,12 +1,28 @@
+# Linux
 docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) --tag raight_move_img .
 
-docker run -p 8888:8888 -p 5000:5000 -p 8080:8080 \
-  --add-host=dockerhost:0.0.0.0 \
-  --user "$(id -u):$(id -g)" \
-  --name raight_move_con --rm -it \
-  -v "$(pwd):/app" \
-  -v "$(pwd)/configs/1_per.yaml:/app/config.yaml" \
+docker run -p 8888:8888 -p 5000:5000 -p 8080:8080 
+  --gpus all
+  --add-host=dockerhost:0.0.0.0 
+  --user "$(id -u):$(id -g)" 
+  --name raight_move_con --rm -it 
+  -v "$(pwd):/app" 
+  -v "$(pwd)/configs/1_per.yaml:/app/config.yaml" 
   raight_move_img jupyter server --ip=0.0.0.0
 
-  
+docker exec -it raight_move_con bash
+
+
+# Windows
+docker build --build-arg UID=123 --build-arg GID=123 --tag raight_move_img .
+
+docker run -p 8888:8888 -p 5000:5000 -p 8080:8080 `
+  --gpus all `
+  --add-host=dockerhost:0.0.0.0 `
+  --user "123:123" `
+  --name raight_move_con --rm -it `
+  -v "$(pwd):/app" `
+  -v "$(pwd)/configs/1_per.yaml:/app/config.yaml" `
+  raight_move_img jupyter server --ip=0.0.0.0
+
 docker exec -it raight_move_con bash
